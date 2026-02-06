@@ -1,0 +1,65 @@
+import path from 'node:path';
+import type { McpServerConfig } from '../types/canonical.js';
+import type { Provider, ProviderConfig } from '../types/providers.js';
+import { fileExists } from '../utils/fs.js';
+
+export class VscodeProvider implements Provider {
+  readonly config: ProviderConfig = {
+    name: 'vscode',
+    displayName: 'VS Code',
+    configPath: '.vscode/mcp.json',
+    supportsProjectConfig: true,
+  };
+
+  generate(servers: Record<string, McpServerConfig>): string {
+    const vscodeServers: Record<string, unknown> = {};
+
+    for (const [name, server] of Object.entries(servers)) {
+      if (server.enabled === false) continue;
+
+      if (server.transport === 'stdio') {
+        vscodeServers[name] = {
+          type: 'stdio',
+          command: server.command,
+          ...(server.args?.length && { args: server.args }),
+          ...(server.env && Object.keys(server.env).length && { env: server.env }),
+        };
+      } else if (server.transport === 'http') {
+        vscodeServers[name] = {
+          type: 'sse',
+          url: server.url,
+          ...(server.headers && Object.keys(server.headers).length && { headers: server.headers }),
+        };
+      }
+    }
+
+    return JSON.stringify({ servers: vscodeServers }, null, 2) + '\n';
+  }
+
+  parse(content: string): Record<string, McpServerConfig> {
+    const data = JSON.parse(content) as { servers?: Record<string, Record<string, unknown>> };
+    const servers: Record<string, McpServerConfig> = {};
+
+    for (const [name, raw] of Object.entries(data.servers ?? {})) {
+      const server: McpServerConfig = {
+        transport: raw['type'] === 'sse' ? 'http' : 'stdio',
+      };
+      if (raw['command']) server.command = raw['command'] as string;
+      if (raw['args']) server.args = raw['args'] as string[];
+      if (raw['env']) server.env = raw['env'] as Record<string, string>;
+      if (raw['url']) server.url = raw['url'] as string;
+      if (raw['headers']) server.headers = raw['headers'] as Record<string, string>;
+      servers[name] = server;
+    }
+
+    return servers;
+  }
+
+  getConfigFilePath(projectRoot: string): string {
+    return path.join(projectRoot, this.config.configPath);
+  }
+
+  exists(projectRoot: string): boolean {
+    return fileExists(this.getConfigFilePath(projectRoot));
+  }
+}

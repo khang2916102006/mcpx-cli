@@ -7,6 +7,8 @@ export const PROVIDER_NAMES = [
   'openai-codex',
   'opencode',
   'copilot-cli',
+  'vscode',
+  'intellij',
 ] as const;
 
 export type ProviderName = (typeof PROVIDER_NAMES)[number];

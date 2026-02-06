@@ -1,6 +1,6 @@
 {
   "name": "mcpx-cli",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "CLI interativa para configurar servidores MCP para multiplos providers de IA",
   "type": "module",
   "bin": {
@@ -45,6 +45,9 @@
     "codex",
     "opencode",
     "copilot",
+    "vscode",
+    "intellij",
+    "jetbrains",
     "ai",
     "configuration"
   ],

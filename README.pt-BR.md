@@ -20,8 +20,10 @@ Cada CLI de IA usa um **formato de arquivo diferente** para configurar servidore
 | OpenAI Codex | `.codex/config.toml` | **TOML** |
 | OpenCode | `opencode.json` | JSON |
 | GitHub Copilot CLI | `.copilot/mcp-config.json` | JSON |
+| VS Code | `.vscode/mcp.json` | JSON |
+| IntelliJ IDEA | `.idea/mcp.json` | JSON |
 
-Se voce usa multiplas ferramentas de IA (e provavelmente usa), precisa **manter manualmente 6 arquivos de config diferentes** com estruturas, nomes de campos e particularidades distintas. Para **cada projeto**.
+Se voce usa multiplas ferramentas de IA (e provavelmente usa), precisa **manter manualmente 8 arquivos de config diferentes** com estruturas, nomes de campos e particularidades distintas. Para **cada projeto**.
 
 ---
 
@@ -30,12 +32,14 @@ Se voce usa multiplas ferramentas de IA (e provavelmente usa), precisa **manter 
 O **MCPX** mantem um unico arquivo canonico (`.mcpx.json`) por projeto e **gera automaticamente** o arquivo de config correto para cada provider de IA que voce usa.
 
 ```
-.mcpx.json  ──────►  .mcp.json                (Claude Code)
-    │       ──────►  .gemini/settings.json     (Gemini CLI)
-    │       ──────►  ~/.kimi/mcp.json          (Kimi CLI)
-    │       ──────►  .codex/config.toml        (OpenAI Codex)
-    │       ──────►  opencode.json             (OpenCode)
-    └─────  ──────►  .copilot/mcp-config.json  (Copilot CLI)
+.mcpx.json  ──────►  .mcp.json                     (Claude Code)
+    │       ──────►  .gemini/settings.json          (Gemini CLI)
+    │       ──────►  ~/.kimi/mcp.json               (Kimi CLI)
+    │       ──────►  .codex/config.toml             (OpenAI Codex)
+    │       ──────►  opencode.json                  (OpenCode)
+    │       ──────►  .copilot/mcp-config.json       (Copilot CLI)
+    │       ──────►  .vscode/mcp.json               (VS Code)
+    └─────  ──────►  .idea/mcp.json                 (IntelliJ IDEA)
 ```
 
 ---
@@ -191,6 +195,24 @@ Estes providers geram arquivos de config **dentro do diretorio do projeto**. Cad
 
 > **📌 Nota:** O Copilot CLI nao detecta automaticamente configs MCP a nivel de projeto. O MCPX configura automaticamente um alias no shell (`copilot='copilot --additional-mcp-config @.copilot/mcp-config.json'`) no seu `.zshrc`, `.bashrc` ou `config.fish` para que a config do projeto seja carregada ao executar `copilot`.
 
+#### 🔷 VS Code
+
+| Aspecto | Detalhe |
+|---------|---------|
+| **Arquivo** | `.vscode/mcp.json` |
+| **Formato** | JSON |
+| **Chave raiz** | `servers` |
+| **Particularidades** | Campo `type` obrigatorio (`"stdio"` ou `"sse"`), HTTP mapeado como `"sse"` |
+
+#### 🟧 IntelliJ IDEA
+
+| Aspecto | Detalhe |
+|---------|---------|
+| **Arquivo** | `.idea/mcp.json` |
+| **Formato** | JSON |
+| **Chave raiz** | `mcpServers` |
+| **Particularidades** | Sem campo `type`, infere pelo `command` vs `url` |
+
 ### 🌍 Providers Globais
 
 Estes providers usam um **unico arquivo global** compartilhado entre todos os projetos. Executar `mcpx sync` sobrescreve o arquivo global com os servidores do projeto atual.
@@ -262,7 +284,9 @@ src/
 │   ├── kimi-cli.ts           # ~/.kimi/mcp.json
 │   ├── openai-codex.ts       # .codex/config.toml
 │   ├── opencode.ts           # opencode.json
-│   └── copilot-cli.ts        # .copilot/mcp-config.json
+│   ├── copilot-cli.ts        # .copilot/mcp-config.json
+│   ├── vscode.ts             # .vscode/mcp.json
+│   └── intellij.ts           # .idea/mcp.json
 ├── core/
 │   ├── config-store.ts       # Leitura/escrita do .mcpx.json
 │   ├── detector.ts           # Deteccao de configs existentes

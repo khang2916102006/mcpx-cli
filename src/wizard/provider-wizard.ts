@@ -11,6 +11,8 @@ const PROVIDER_DETAILS: Record<ProviderName, { path: string; hint?: string }> = 
   'openai-codex': { path: '.codex/config.toml' },
   'opencode': { path: 'opencode.json' },
   'copilot-cli': { path: '.copilot/mcp-config.json' },
+  'vscode': { path: '.vscode/mcp.json' },
+  'intellij': { path: '.idea/mcp.json' },
 };
 
 export async function runProviderWizard(

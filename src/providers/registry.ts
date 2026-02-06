@@ -6,6 +6,8 @@ import { KimiCliProvider } from './kimi-cli.js';
 import { OpenAICodexProvider } from './openai-codex.js';
 import { OpenCodeProvider } from './opencode.js';
 import { CopilotCliProvider } from './copilot-cli.js';
+import { VscodeProvider } from './vscode.js';
+import { IntellijProvider } from './intellij.js';
 
 export class ProviderRegistry {
   private providers = new Map<ProviderName, Provider>();
@@ -37,5 +39,7 @@ export function createRegistry(): ProviderRegistry {
   registry.register(new OpenAICodexProvider());
   registry.register(new OpenCodeProvider());
   registry.register(new CopilotCliProvider());
+  registry.register(new VscodeProvider());
+  registry.register(new IntellijProvider());
   return registry;
 }
