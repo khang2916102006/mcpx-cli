@@ -1,4 +1,4 @@
-# MCPX
+# 🔌 MCPX
 
 > **Uma config para dominar todas.** Configure seus servidores MCP uma vez e distribua para todas as CLIs de IA automaticamente.
 
@@ -8,7 +8,7 @@
 
 ---
 
-## O Problema
+## 😩 O Problema
 
 Cada CLI de IA usa um **formato de arquivo diferente** para configurar servidores MCP (Model Context Protocol):
 
@@ -25,7 +25,7 @@ Se voce usa multiplas ferramentas de IA (e provavelmente usa), precisa **manter 
 
 ---
 
-## A Solucao
+## ✨ A Solucao
 
 O **MCPX** mantem um unico arquivo canonico (`.mcpx.json`) por projeto e **gera automaticamente** o arquivo de config correto para cada provider de IA que voce usa.
 
@@ -40,15 +40,15 @@ O **MCPX** mantem um unico arquivo canonico (`.mcpx.json`) por projeto e **gera 
 
 ---
 
-## Inicio Rapido
+## 🚀 Inicio Rapido
 
-### Instalacao
+### 📦 Instalacao
 
 ```bash
-npm install -g mcpx
+npm install -g mcpx-cli
 ```
 
-### Primeira Configuracao
+### ⚡ Primeira Configuracao
 
 Navegue ate o diretorio do seu projeto e execute:
 
@@ -58,38 +58,38 @@ mcpx
 
 O wizard interativo vai te guiar por:
 
-1. **Deteccao** — Detecta automaticamente configs MCP existentes no seu projeto
-2. **Importacao** — Oferece importar servidores das configs detectadas
-3. **Adicionar servidores** — Wizard interativo para configurar novos servidores MCP
-4. **Selecionar providers** — Escolha para quais CLIs de IA gerar configs
-5. **Gerar** — Cria o `.mcpx.json` e todos os arquivos dos providers
+1. 🔍 **Deteccao** — Detecta automaticamente configs MCP existentes no seu projeto
+2. 📥 **Importacao** — Oferece importar servidores das configs detectadas
+3. ➕ **Adicionar servidores** — Wizard interativo para configurar novos servidores MCP
+4. 🎯 **Selecionar providers** — Escolha para quais CLIs de IA gerar configs
+5. ⚙️ **Gerar** — Cria o `.mcpx.json` e todos os arquivos dos providers
 
 ---
 
-## Comandos
+## 📋 Comandos
 
 | Comando | Descricao |
 |---------|-----------|
-| `mcpx` ou `mcpx init` | Wizard interativo de configuracao |
-| `mcpx add [nome]` | Adicionar um novo servidor MCP |
-| `mcpx remove [nome]` | Remover um servidor MCP |
-| `mcpx list` | Listar servidores MCP configurados |
-| `mcpx sync` | Regenerar todos os arquivos de config dos providers |
-| `mcpx import [provider]` | Importar config de um provider existente |
-| `mcpx status` | Mostrar estado de sincronizacao dos providers |
+| `mcpx` ou `mcpx init` | 🧙 Wizard interativo de configuracao |
+| `mcpx add [nome]` | ➕ Adicionar um novo servidor MCP |
+| `mcpx remove [nome]` | ➖ Remover um servidor MCP |
+| `mcpx list` | 📄 Listar servidores MCP configurados |
+| `mcpx sync` | 🔄 Regenerar todos os arquivos de config dos providers |
+| `mcpx import [provider]` | 📥 Importar config de um provider existente |
+| `mcpx status` | 📊 Mostrar estado de sincronizacao dos providers |
 
-### Flags Globais
+### 🏳️ Flags Globais
 
 | Flag | Descricao |
 |------|-----------|
-| `--dir, -d <caminho>` | Diretorio do projeto (padrao: diretorio atual) |
-| `--verbose` | Exibir logs detalhados |
-| `--version, -V` | Exibir versao |
-| `--help, -h` | Exibir ajuda |
+| `--dir, -d <caminho>` | 📁 Diretorio do projeto (padrao: diretorio atual) |
+| `--verbose` | 🔊 Exibir logs detalhados |
+| `--version, -V` | 🏷️ Exibir versao |
+| `--help, -h` | ❓ Exibir ajuda |
 
 ---
 
-## Formato Canonico
+## 📐 Formato Canonico
 
 O MCPX usa um unico arquivo `.mcpx.json` como fonte da verdade:
 
@@ -122,11 +122,11 @@ O MCPX usa um unico arquivo `.mcpx.json` como fonte da verdade:
 }
 ```
 
-### Campos do Servidor
+### 📝 Campos do Servidor
 
 | Campo | Tipo | Obrigatorio | Descricao |
 |-------|------|-------------|-----------|
-| `transport` | `"stdio"` \| `"http"` | Sim | Protocolo de transporte |
+| `transport` | `"stdio"` \| `"http"` | ✅ Sim | Protocolo de transporte |
 | `command` | `string` | stdio | Comando executavel |
 | `args` | `string[]` | — | Argumentos do comando |
 | `env` | `Record<string, string>` | — | Variaveis de ambiente |
@@ -138,13 +138,13 @@ O MCPX usa um unico arquivo `.mcpx.json` como fonte da verdade:
 
 ---
 
-## Providers Suportados
+## 🤖 Providers Suportados
 
-### Providers com Escopo de Projeto
+### 📁 Providers com Escopo de Projeto
 
 Estes providers geram arquivos de config **dentro do diretorio do projeto**. Cada projeto tem sua propria config independente.
 
-#### Claude Code
+#### 🟣 Claude Code
 
 | Aspecto | Detalhe |
 |---------|---------|
@@ -153,7 +153,7 @@ Estes providers geram arquivos de config **dentro do diretorio do projeto**. Cad
 | **Chave raiz** | `mcpServers` |
 | **Exige `type`** | Sim `"stdio"` |
 
-#### Gemini CLI
+#### 🔵 Gemini CLI
 
 | Aspecto | Detalhe |
 |---------|---------|
@@ -162,7 +162,7 @@ Estes providers geram arquivos de config **dentro do diretorio do projeto**. Cad
 | **Chave raiz** | `mcpServers` |
 | **Exige `type`** | Nao |
 
-#### OpenAI Codex
+#### 🟢 OpenAI Codex
 
 | Aspecto | Detalhe |
 |---------|---------|
@@ -171,7 +171,7 @@ Estes providers geram arquivos de config **dentro do diretorio do projeto**. Cad
 | **Chave raiz** | `mcp_servers` |
 | **Merge inteligente** | Sim — Preserva configuracoes existentes do Codex (`model`, `approval_mode`, etc.) |
 
-#### OpenCode
+#### 🟠 OpenCode
 
 | Aspecto | Detalhe |
 |---------|---------|
@@ -180,7 +180,7 @@ Estes providers geram arquivos de config **dentro do diretorio do projeto**. Cad
 | **Chave raiz** | `mcp` |
 | **Particularidades** | `command` e um array (comando + args juntos), usa `environment` em vez de `env`, `type: "local"` |
 
-#### GitHub Copilot CLI
+#### ⚫ GitHub Copilot CLI
 
 | Aspecto | Detalhe |
 |---------|---------|
@@ -189,13 +189,13 @@ Estes providers geram arquivos de config **dentro do diretorio do projeto**. Cad
 | **Chave raiz** | `mcpServers` |
 | **Particularidades** | Exige campo `tools: ["*"]`, precisa de alias no shell para config por projeto |
 
-> **Nota:** O Copilot CLI nao detecta automaticamente configs MCP a nivel de projeto. O MCPX configura automaticamente um alias no shell (`copilot='copilot --additional-mcp-config @.copilot/mcp-config.json'`) no seu `.zshrc`, `.bashrc` ou `config.fish` para que a config do projeto seja carregada ao executar `copilot`.
+> **📌 Nota:** O Copilot CLI nao detecta automaticamente configs MCP a nivel de projeto. O MCPX configura automaticamente um alias no shell (`copilot='copilot --additional-mcp-config @.copilot/mcp-config.json'`) no seu `.zshrc`, `.bashrc` ou `config.fish` para que a config do projeto seja carregada ao executar `copilot`.
 
-### Providers Globais
+### 🌍 Providers Globais
 
 Estes providers usam um **unico arquivo global** compartilhado entre todos os projetos. Executar `mcpx sync` sobrescreve o arquivo global com os servidores do projeto atual.
 
-#### Kimi CLI
+#### 🔴 Kimi CLI
 
 | Aspecto | Detalhe |
 |---------|---------|
@@ -206,9 +206,9 @@ Estes providers usam um **unico arquivo global** compartilhado entre todos os pr
 
 ---
 
-## Sincronizacao e Gerenciamento de Providers
+## 🔄 Sincronizacao e Gerenciamento de Providers
 
-### Sincronizando
+### 🔁 Sincronizando
 
 Apos modificar o `.mcpx.json` (manualmente ou via comandos), regenere todas as configs dos providers:
 
@@ -216,7 +216,7 @@ Apos modificar o `.mcpx.json` (manualmente ou via comandos), regenere todas as c
 mcpx sync
 ```
 
-### Alterando Providers
+### 🔀 Alterando Providers
 
 Use o wizard interativo para adicionar ou remover providers:
 
@@ -227,7 +227,7 @@ mcpx init
 
 Quando um provider e **removido**, o MCPX **exclui** o arquivo de config correspondente. Para providers globais, arquivos legados a nivel de projeto tambem sao limpos.
 
-### Importando de Configs Existentes
+### 📥 Importando de Configs Existentes
 
 Ja tem servidores MCP configurados em uma das suas ferramentas de IA? Importe-os:
 
@@ -239,7 +239,7 @@ O MCPX detecta configs existentes a nivel de projeto (`.mcp.json`, `.gemini/sett
 
 ---
 
-## Arquitetura
+## 🏗️ Arquitetura
 
 ```
 src/
@@ -280,7 +280,7 @@ src/
 
 ---
 
-## Testes
+## 🧪 Testes
 
 ```bash
 # Rodar todos os testes
@@ -295,28 +295,28 @@ npm run typecheck
 
 ---
 
-## Stack Tecnica
+## 🛠️ Stack Tecnica
 
 | Categoria | Biblioteca |
 |-----------|-----------|
-| Linguagem | TypeScript 5.x (ESM) |
-| Build | tsup (esbuild) |
-| CLI Framework | commander |
-| Prompts Interativos | @clack/prompts |
-| Cores | picocolors |
-| TOML | smol-toml |
-| Validacao | zod |
-| Testes | vitest |
-| Node minimo | >= 20 |
+| 💻 Linguagem | TypeScript 5.x (ESM) |
+| 📦 Build | tsup (esbuild) |
+| ⌨️ CLI Framework | commander |
+| 💬 Prompts Interativos | @clack/prompts |
+| 🎨 Cores | picocolors |
+| 📄 TOML | smol-toml |
+| ✅ Validacao | zod |
+| 🧪 Testes | vitest |
+| 🟢 Node minimo | >= 20 |
 
 ---
 
-## Licenca
+## 📄 Licenca
 
 MIT
 
 ---
 
 <p align="center">
-  <i><a href="./README.md">Read in English (en-US)</a></i>
+  <i><a href="./README.md">🇺🇸 Read in English (en-US)</a></i>
 </p>
