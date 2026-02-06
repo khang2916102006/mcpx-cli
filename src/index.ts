@@ -1,0 +1,13 @@
+export { ConfigStore } from './core/config-store.js';
+export { ConfigDetector } from './core/detector.js';
+export { syncAllProviders, syncProvider } from './core/merger.js';
+export { createRegistry, ProviderRegistry } from './providers/registry.js';
+export { ClaudeCodeProvider } from './providers/claude-code.js';
+export { GeminiCliProvider } from './providers/gemini-cli.js';
+export { KimiCliProvider } from './providers/kimi-cli.js';
+export { OpenAICodexProvider } from './providers/openai-codex.js';
+export { OpenCodeProvider } from './providers/opencode.js';
+export { CopilotCliProvider } from './providers/copilot-cli.js';
+export type { McpConfigFile, McpServerConfig, ProviderName } from './types/canonical.js';
+export type { Provider, ProviderConfig } from './types/providers.js';
+export type { CommandContext, SyncResult, ImportResult, DetectionResult } from './types/common.js';
